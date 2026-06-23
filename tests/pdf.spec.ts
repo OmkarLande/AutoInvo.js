@@ -1,3 +1,5 @@
+// import * as fs from 'fs';
+// import * as path from 'path';
 import { describe, it, expect, afterAll } from 'vitest';
 import { AutoInvo } from '../src/index.js';
 import { PdfGenerationException } from '../src/pdf/exceptions/PdfGenerationException.js';
@@ -9,7 +11,8 @@ describe('AutoInvo PDF Generation Engine', () => {
         const html = '<h1>Hello World</h1><p>Invoice Test</p>';
         
         const buffer = await autoinvo.generatePdf(html);
-        
+        // fs.writeFileSync(path.join(__dirname, 'visual-check.pdf'), buffer);
+
         expect(buffer).toBeInstanceOf(Buffer);
         expect(buffer.length).toBeGreaterThan(0);
         
