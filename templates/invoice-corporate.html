@@ -3,138 +3,162 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Invoice - Corporate</title>
-    <link rel="stylesheet" href="../../src/styles/invoice-corporate.css">
+    <title>Invoice - Corporate Design</title>
+    <link rel="stylesheet" href="/src/styles/invoice-corporate.css">
 </head>
 <body>
-    <div class="container">
+    <div class="invoice-container">
         <!-- Header -->
-        <div class="page-header">
-            <div class="logo-section">
-                <div class="company-logo">YC</div>
-                <div class="company-name">Your Company</div>
-                <div class="company-tagline">Professional Business Solutions</div>
+        <div class="header">
+            <div class="company-name">ENTERPRISE SOLUTIONS GROUP</div>
+            <div class="company-details">
+                <span>Corporate Headquarters: 1200 Corporate Boulevard, New York, NY 10017</span>
+                <span>Phone: (212) 555-0100 | Fax: (212) 555-0101 | Email: billing@enterprisesolutions.com</span>
             </div>
-            <div class="header-right">
-                <div class="invoice-title">INVOICE</div>
-                <div class="invoice-number">
-                    <p>Invoice #: INV-001</p>
-                    <p>Date: January 15, 2024</p>
+            <div class="invoice-title">
+                <div class="invoice-label">INVOICE</div>
+                <div class="invoice-number">ESG-2024-012345</div>
+            </div>
+        </div>
+
+        <div class="clear"></div>
+
+        <!-- Invoice Meta Information -->
+        <div class="invoice-meta">
+            <div class="meta-section">
+                <label class="meta-label">Invoice Date</label>
+                <div class="meta-value">June 24, 2024</div>
+            </div>
+            <div class="meta-section">
+                <label class="meta-label">Due Date</label>
+                <div class="meta-value">July 24, 2024</div>
+            </div>
+            <div class="meta-section">
+                <label class="meta-label">Client Reference</label>
+                <div class="meta-value">CORP-ACME-2024</div>
+            </div>
+            <div class="meta-section">
+                <label class="meta-label">Purchase Order</label>
+                <div class="meta-value">PO-2024-100523</div>
+            </div>
+        </div>
+
+        <!-- Addresses -->
+        <div class="addresses">
+            <div class="address-block">
+                <div class="address-title">Bill To:</div>
+                <div class="address-content">
+                    <strong>Robert Williams</strong><br>
+                    Vice President, Operations<br>
+                    <strong>Acme Manufacturing Corp.</strong><br>
+                    5500 Industrial Way<br>
+                    Chicago, IL 60601<br>
+                    United States of America<br><br>
+                    Email: r.williams@acmemfg.com<br>
+                    Tax ID: 45-1234567
+                </div>
+            </div>
+            <div class="address-block">
+                <div class="address-title">Ship To:</div>
+                <div class="address-content">
+                    <strong>Acme Manufacturing Corp.</strong><br>
+                    Receiving Department<br>
+                    5500 Industrial Way<br>
+                    Chicago, IL 60601<br>
+                    United States of America
                 </div>
             </div>
         </div>
 
-        <!-- Content -->
-        <div class="content">
-            <!-- Billing Information -->
-            <div class="row">
-                <div class="section">
-                    <div class="section-title">Bill To</div>
-                    <p><strong>Client Company Name</strong></p>
-                    <p>Attention: John Smith</p>
-                    <p>456 Client Avenue</p>
-                    <p>City, State 67890</p>
-                    <p>Telephone: (555) 987-6543</p>
-                    <p>Email: john@client.com</p>
+        <!-- Line Items -->
+        <table class="items-table">
+            <thead>
+                <tr>
+                    <th>Product / Service Description</th>
+                    <th class="col-qty text-right">Quantity</th>
+                    <th class="col-price text-right">Unit Price</th>
+                    <th class="col-amount text-right">Total Amount</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Enterprise Software License (Annual) - Tier 3</td>
+                    <td class="col-qty text-right">1</td>
+                    <td class="col-price text-right">$15,000.00</td>
+                    <td class="col-amount text-right">$15,000.00</td>
+                </tr>
+                <tr>
+                    <td>Implementation & System Integration Services</td>
+                    <td class="col-qty text-right">80</td>
+                    <td class="col-price text-right">$200.00</td>
+                    <td class="col-amount text-right">$16,000.00</td>
+                </tr>
+                <tr>
+                    <td>Staff Training Program (20 personnel)</td>
+                    <td class="col-qty text-right">20</td>
+                    <td class="col-price text-right">$300.00</td>
+                    <td class="col-amount text-right">$6,000.00</td>
+                </tr>
+                <tr>
+                    <td>Technical Support Package (24 months)</td>
+                    <td class="col-qty text-right">1</td>
+                    <td class="col-price text-right">$5,500.00</td>
+                    <td class="col-amount text-right">$5,500.00</td>
+                </tr>
+                <tr>
+                    <td>Maintenance & System Optimization (Annual)</td>
+                    <td class="col-qty text-right">1</td>
+                    <td class="col-price text-right">$3,200.00</td>
+                    <td class="col-amount text-right">$3,200.00</td>
+                </tr>
+                <tr>
+                    <td>Hardware Equipment (Installation Included)</td>
+                    <td class="col-qty text-right">5</td>
+                    <td class="col-price text-right">$2,800.00</td>
+                    <td class="col-amount text-right">$14,000.00</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- Totals -->
+        <div class="totals">
+            <div class="totals-table">
+                <div class="total-row">
+                    <span>Subtotal (USD)</span>
+                    <span class="amount">$59,700.00</span>
                 </div>
-                <div class="section">
-                    <div class="section-title">Ship To</div>
-                    <p><strong>Client Company Name</strong></p>
-                    <p>Attention: John Smith</p>
-                    <p>456 Client Avenue</p>
-                    <p>City, State 67890</p>
+                <div class="total-row">
+                    <span>Sales Tax / VAT (8.875%)</span>
+                    <span class="amount">$5,298.75</span>
+                </div>
+                <div class="total-row">
+                    <span>Shipping & Handling</span>
+                    <span class="amount">$500.00</span>
+                </div>
+                <div class="total-row final">
+                    <span class="label">Total Amount Due</span>
+                    <span class="amount">$65,498.75</span>
                 </div>
             </div>
+        </div>
 
-            <!-- Invoice Details -->
-            <div class="row">
-                <div class="section">
-                    <div class="section-title">Invoice Details</div>
-                    <p><strong>Invoice Date:</strong> January 15, 2024</p>
-                    <p><strong>Due Date:</strong> February 15, 2024</p>
-                    <p><strong>PO Number:</strong> PO-2024-1001</p>
-                </div>
-                <div class="section">
-                    <div class="section-title">Contact Information</div>
-                    <p><strong>Company:</strong> Your Company</p>
-                    <p><strong>Phone:</strong> (555) 123-4567</p>
-                    <p><strong>Email:</strong> contact@company.com</p>
-                    <p><strong>Website:</strong> www.company.com</p>
-                </div>
-            </div>
-
-            <!-- Items Table -->
-            <table>
-                <thead>
-                    <tr>
-                        <th style="width: 45%">Description</th>
-                        <th style="width: 15%">Quantity</th>
-                        <th style="width: 15%">Unit Price</th>
-                        <th style="width: 25%; text-align: right">Amount</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Professional Consulting Services - 10 hours</td>
-                        <td>10</td>
-                        <td>$100.00</td>
-                        <td class="amount">$1,000.00</td>
-                    </tr>
-                    <tr>
-                        <td>Annual Product License (Renewable)</td>
-                        <td>5</td>
-                        <td>$250.00</td>
-                        <td class="amount">$1,250.00</td>
-                    </tr>
-                    <tr>
-                        <td>Premium Support Services - Monthly</td>
-                        <td>1</td>
-                        <td>$500.00</td>
-                        <td class="amount">$500.00</td>
-                    </tr>
-                </tbody>
-            </table>
-
-            <!-- Totals -->
-            <div class="totals-section">
-                <table class="totals-table">
-                    <tr>
-                        <td>Subtotal:</td>
-                        <td>$2,750.00</td>
-                    </tr>
-                    <tr>
-                        <td>Tax (10%):</td>
-                        <td>$275.00</td>
-                    </tr>
-                    <tr class="total-row">
-                        <td>TOTAL DUE:</td>
-                        <td>$3,025.00</td>
-                    </tr>
-                </table>
-            </div>
-
-            <!-- Notes -->
-            <div class="notes-section">
-                <div class="notes-title">Payment Terms & Notes</div>
-                <div class="notes-content">
-                    <p>Payment is due upon receipt of this invoice. Please remit payment within 30 days of the invoice date. Make all checks payable to Your Company. Late payments may be subject to a 1.5% monthly interest charge.</p>
-                </div>
+        <!-- Terms and Conditions -->
+        <div class="terms-section">
+            <div class="terms-title">Terms & Conditions</div>
+            <div class="terms-content">
+                <strong>Payment Terms:</strong> Net 45 days from invoice date. Payment is due by July 9, 2024.<br><br>
+                <strong>Payment Method:</strong> Wire transfer preferred. Bank details provided separately. Checks should be made payable to "Enterprise Solutions Group" and mailed to the address shown above.<br><br>
+                <strong>Late Payment Policy:</strong> Invoices not paid within 60 days will be subject to a 1.5% monthly interest charge. Accounts 90+ days overdue may be referred to collections.<br><br>
+                <strong>Service Terms:</strong> All services rendered are subject to our Master Service Agreement dated January 15, 2024. Maintenance and support services commence upon acceptance and installation of equipment.<br><br>
+                <strong>Warranty:</strong> All products and services are provided with standard manufacturer/vendor warranties. Extended warranty options available upon request.
             </div>
         </div>
 
         <!-- Footer -->
         <div class="footer">
-            <div class="footer-item">
-                <div class="footer-label">Bank Details</div>
-                <div>Available upon request</div>
-            </div>
-            <div class="footer-item">
-                <div class="footer-label">Phone</div>
-                <div>(555) 123-4567</div>
-            </div>
-            <div class="footer-item">
-                <div class="footer-label">Email</div>
-                <div>contact@company.com</div>
+            <p><strong>Enterprise Solutions Group</strong> | Federal Tax ID: 12-3456789</p>
+            <div class="footer-content">
+                This invoice is a legal document. Please retain for your records. Questions? Contact our billing department at billing@enterprisesolutions.com or (212) 555-0100 ext. 5001.
             </div>
         </div>
     </div>

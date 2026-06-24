@@ -3,101 +3,131 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Invoice - Minimal</title>
-    <link rel="stylesheet" href="../../src/styles/invoice-minimal.css">
+    <title>Invoice - Minimal Design</title>
+    <link rel="stylesheet" href="/src/styles/invoice-minimal.css">
 </head>
 <body>
-    <div class="container">
+    <div class="invoice-container">
         <!-- Header -->
         <div class="header">
-            <div class="company-info">
-                <h1>Your Company</h1>
-                <p>123 Business Street</p>
-                <p>City, State 12345</p>
-                <p>contact@company.com</p>
-                <p>(555) 123-4567</p>
+            <div class="company-name">ACME Corporation</div>
+            <div class="company-details">
+                <div>123 Business Street</div>
+                <div>New York, NY 10001</div>
+                <div>contact@acme.com | (555) 123-4567</div>
             </div>
-            <div class="invoice-title">
-                <h2>INVOICE</h2>
-                <div class="invoice-meta">
-                    <div><strong>Invoice #:</strong> INV-001</div>
-                    <div><strong>Date:</strong> January 15, 2024</div>
-                    <div><strong>Due Date:</strong> February 15, 2024</div>
+            <div class="invoice-title">INVOICE</div>
+        </div>
+
+        <!-- Invoice Meta Information -->
+        <div class="invoice-meta">
+            <div class="meta-section">
+                <div class="meta-label">Invoice Number</div>
+                <div class="meta-value">INV-2024-001234</div>
+            </div>
+            <div class="meta-section">
+                <div class="meta-label">Invoice Date</div>
+                <div class="meta-value">June 24, 2024</div>
+            </div>
+            <div class="meta-section">
+                <div class="meta-label">Due Date</div>
+                <div class="meta-value">July 24, 2024</div>
+            </div>
+            <div class="meta-section">
+                <div class="meta-label">PO Number</div>
+                <div class="meta-value">PO-2024-5678</div>
+            </div>
+        </div>
+
+        <!-- Addresses -->
+        <div class="addresses">
+            <div class="address-block">
+                <div class="address-title">Bill To:</div>
+                <div class="address-content">
+                    <strong>John Smith</strong><br>
+                    ABC Company<br>
+                    456 Client Avenue<br>
+                    Los Angeles, CA 90001<br>
+                    john.smith@abcco.com
+                </div>
+            </div>
+            <div class="address-block">
+                <div class="address-title">Ship To:</div>
+                <div class="address-content">
+                    <strong>John Smith</strong><br>
+                    ABC Company<br>
+                    456 Client Avenue<br>
+                    Los Angeles, CA 90001
                 </div>
             </div>
         </div>
 
-        <!-- Billing Information -->
-        <div class="content">
-            <div class="billing-section">
-                <h3>Bill To</h3>
-                <p>Client Company Name</p>
-                <p>456 Client Avenue</p>
-                <p>City, State 67890</p>
-                <p>client@company.com</p>
-            </div>
-            <div class="billing-section">
-                <h3>Ship To</h3>
-                <p>Client Company Name</p>
-                <p>456 Client Avenue</p>
-                <p>City, State 67890</p>
-            </div>
-        </div>
-
-        <!-- Items Table -->
-        <table>
+        <!-- Line Items -->
+        <table class="items-table">
             <thead>
                 <tr>
-                    <th style="width: 50%">Description</th>
-                    <th style="width: 15%">Quantity</th>
-                    <th style="width: 20%">Unit Price</th>
-                    <th style="width: 15%; text-align: right">Amount</th>
+                    <th>Description</th>
+                    <th class="col-qty text-right">Qty</th>
+                    <th class="col-price text-right">Unit Price</th>
+                    <th class="col-amount text-right">Amount</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                    <td>Professional Services</td>
-                    <td>10</td>
-                    <td>$100.00</td>
-                    <td class="amount">$1,000.00</td>
+                    <td>Web Design Services - Homepage</td>
+                    <td class="col-qty text-right">1</td>
+                    <td class="col-price text-right">$1,500.00</td>
+                    <td class="col-amount text-right">$1,500.00</td>
                 </tr>
                 <tr>
-                    <td>Product License</td>
-                    <td>5</td>
-                    <td>$250.00</td>
-                    <td class="amount">$1,250.00</td>
+                    <td>Frontend Development</td>
+                    <td class="col-qty text-right">40</td>
+                    <td class="col-price text-right">$75.00</td>
+                    <td class="col-amount text-right">$3,000.00</td>
                 </tr>
                 <tr>
-                    <td>Support Services</td>
-                    <td>1</td>
-                    <td>$500.00</td>
-                    <td class="amount">$500.00</td>
+                    <td>Database Setup & Configuration</td>
+                    <td class="col-qty text-right">8</td>
+                    <td class="col-price text-right">$100.00</td>
+                    <td class="col-amount text-right">$800.00</td>
+                </tr>
+                <tr>
+                    <td>Testing & QA</td>
+                    <td class="col-qty text-right">16</td>
+                    <td class="col-price text-right">$60.00</td>
+                    <td class="col-amount text-right">$960.00</td>
                 </tr>
             </tbody>
         </table>
 
-        <!-- Summary -->
-        <div class="summary">
-            <div class="summary-items">
-                <div class="summary-row">
-                    <span>Subtotal</span>
-                    <span>$2,750.00</span>
+        <!-- Totals -->
+        <div class="totals">
+            <div class="totals-table">
+                <div class="total-row">
+                    <span>Subtotal:</span>
+                    <span class="amount">$6,260.00</span>
                 </div>
-                <div class="summary-row">
-                    <span>Tax (10%)</span>
-                    <span>$275.00</span>
+                <div class="total-row">
+                    <span>Tax (10%):</span>
+                    <span class="amount">$626.00</span>
                 </div>
-                <div class="summary-row total">
-                    <span>Total Due</span>
-                    <span>$3,025.00</span>
+                <div class="total-row final">
+                    <span>TOTAL DUE:</span>
+                    <span class="amount">$6,886.00</span>
                 </div>
             </div>
+        </div>
+
+        <!-- Notes -->
+        <div class="notes">
+            <div class="notes-title">Payment Terms & Notes:</div>
+            <p>Thank you for your business! Please remit payment by the due date. Payment methods accepted: wire transfer, check, or credit card. Late payments subject to 1.5% monthly interest charge.</p>
         </div>
 
         <!-- Footer -->
         <div class="footer">
             <p>Thank you for your business!</p>
-            <p>Payment terms: Due upon receipt. Please make checks payable to Your Company.</p>
+            <p>This is a computer generated invoice. No signature required.</p>
         </div>
     </div>
 </body>
