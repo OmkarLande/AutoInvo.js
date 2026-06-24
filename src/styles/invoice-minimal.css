@@ -1,0 +1,179 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background: #f5f5f5;
+}
+
+.container {
+    max-width: 8.5in;
+    height: 11in;
+    margin: 20px auto;
+    padding: 40px;
+    background: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 40px;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 20px;
+}
+
+.company-info h1 {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.company-info p {
+    font-size: 12px;
+    color: #666;
+    margin: 2px 0;
+}
+
+.invoice-title {
+    text-align: right;
+}
+
+.invoice-title h2 {
+    font-size: 32px;
+    font-weight: 300;
+    color: #000;
+    margin-bottom: 10px;
+}
+
+.invoice-meta {
+    font-size: 12px;
+    color: #666;
+}
+
+.invoice-meta div {
+    margin: 3px 0;
+}
+
+.invoice-meta strong {
+    display: inline-block;
+    width: 70px;
+}
+
+.content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    margin-bottom: 40px;
+}
+
+.billing-section h3 {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.billing-section p {
+    font-size: 13px;
+    line-height: 1.8;
+    margin-bottom: 3px;
+}
+
+table {
+    width: 100%;
+    margin-bottom: 30px;
+    border-collapse: collapse;
+}
+
+table thead {
+    background: #f9f9f9;
+    border-top: 2px solid #333;
+    border-bottom: 2px solid #333;
+}
+
+table th {
+    padding: 12px 8px;
+    text-align: left;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+table td {
+    padding: 12px 8px;
+    font-size: 13px;
+    border-bottom: 1px solid #eee;
+}
+
+table tr:last-child td {
+    border-bottom: none;
+}
+
+.amount {
+    text-align: right;
+    font-weight: 500;
+}
+
+.summary {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 30px;
+}
+
+.summary-items {
+    width: 250px;
+}
+
+.summary-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+    margin-bottom: 8px;
+    padding-bottom: 8px;
+}
+
+.summary-row.total {
+    border-top: 2px solid #333;
+    border-bottom: 2px solid #333;
+    padding-top: 8px;
+    font-weight: 600;
+    font-size: 14px;
+    margin-bottom: 0;
+}
+
+.footer {
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid #ddd;
+    font-size: 11px;
+    color: #666;
+    text-align: center;
+}
+
+.footer p {
+    margin: 5px 0;
+}
+
+@media print {
+    body {
+        background: white;
+    }
+
+    .container {
+        max-width: 100%;
+        margin: 0;
+        padding: 0;
+        box-shadow: none;
+        page-break-after: avoid;
+    }
+}

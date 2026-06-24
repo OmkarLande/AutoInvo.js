@@ -1,0 +1,211 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+}
+
+.container {
+    max-width: 8.5in;
+    height: 11in;
+    margin: 20px auto;
+    background: white;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.header-accent {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 30px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.company-info h1 {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    letter-spacing: -0.5px;
+}
+
+.company-info p {
+    font-size: 13px;
+    opacity: 0.9;
+    margin: 2px 0;
+}
+
+.invoice-title {
+    text-align: right;
+}
+
+.invoice-title h2 {
+    font-size: 36px;
+    font-weight: 700;
+    margin-bottom: 15px;
+    letter-spacing: -1px;
+}
+
+.invoice-meta {
+    font-size: 12px;
+    background: rgba(255, 255, 255, 0.15);
+    padding: 12px 16px;
+    border-radius: 6px;
+    backdrop-filter: blur(10px);
+}
+
+.invoice-meta div {
+    margin: 4px 0;
+}
+
+.invoice-meta strong {
+    display: inline-block;
+    width: 80px;
+    font-weight: 600;
+}
+
+.content {
+    padding: 40px;
+}
+
+.billing-info {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    margin-bottom: 40px;
+}
+
+.billing-section {
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 8px;
+    border-left: 4px solid #667eea;
+}
+
+.billing-section h3 {
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 12px;
+    color: #667eea;
+}
+
+.billing-section p {
+    font-size: 13px;
+    line-height: 1.8;
+    margin-bottom: 2px;
+    color: #333;
+}
+
+table {
+    width: 100%;
+    margin-bottom: 30px;
+    border-collapse: collapse;
+}
+
+table thead {
+    background: linear-gradient(135deg, #f8f9fa 0%, #f0f2f5 100%);
+}
+
+table th {
+    padding: 14px 12px;
+    text-align: left;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #667eea;
+    border-bottom: 2px solid #667eea;
+}
+
+table td {
+    padding: 14px 12px;
+    font-size: 13px;
+    border-bottom: 1px solid #eee;
+}
+
+table tbody tr {
+    transition: background-color 0.2s;
+}
+
+table tbody tr:hover {
+    background-color: #f8f9fa;
+}
+
+table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.amount {
+    text-align: right;
+    font-weight: 600;
+    color: #667eea;
+}
+
+.summary {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 30px;
+}
+
+.summary-items {
+    width: 280px;
+}
+
+.summary-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+    margin-bottom: 10px;
+    padding: 10px;
+}
+
+.summary-row.total {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border-radius: 6px;
+    font-weight: 700;
+    font-size: 14px;
+    margin-top: 10px;
+    padding: 14px;
+}
+
+.footer {
+    background: #f8f9fa;
+    padding: 20px 40px;
+    font-size: 12px;
+    color: #666;
+    text-align: center;
+    border-top: 1px solid #eee;
+}
+
+.footer p {
+    margin: 4px 0;
+}
+
+@media print {
+    body {
+        background: white;
+    }
+
+    .container {
+        max-width: 100%;
+        margin: 0;
+        box-shadow: none;
+        border-radius: 0;
+        page-break-after: avoid;
+    }
+
+    table tbody tr:hover {
+        background-color: transparent;
+    }
+}

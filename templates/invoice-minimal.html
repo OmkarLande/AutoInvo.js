@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invoice - Minimal</title>
+    <link rel="stylesheet" href="../../src/styles/invoice-minimal.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <div class="company-info">
+                <h1>Your Company</h1>
+                <p>123 Business Street</p>
+                <p>City, State 12345</p>
+                <p>contact@company.com</p>
+                <p>(555) 123-4567</p>
+            </div>
+            <div class="invoice-title">
+                <h2>INVOICE</h2>
+                <div class="invoice-meta">
+                    <div><strong>Invoice #:</strong> INV-001</div>
+                    <div><strong>Date:</strong> January 15, 2024</div>
+                    <div><strong>Due Date:</strong> February 15, 2024</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Billing Information -->
+        <div class="content">
+            <div class="billing-section">
+                <h3>Bill To</h3>
+                <p>Client Company Name</p>
+                <p>456 Client Avenue</p>
+                <p>City, State 67890</p>
+                <p>client@company.com</p>
+            </div>
+            <div class="billing-section">
+                <h3>Ship To</h3>
+                <p>Client Company Name</p>
+                <p>456 Client Avenue</p>
+                <p>City, State 67890</p>
+            </div>
+        </div>
+
+        <!-- Items Table -->
+        <table>
+            <thead>
+                <tr>
+                    <th style="width: 50%">Description</th>
+                    <th style="width: 15%">Quantity</th>
+                    <th style="width: 20%">Unit Price</th>
+                    <th style="width: 15%; text-align: right">Amount</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Professional Services</td>
+                    <td>10</td>
+                    <td>$100.00</td>
+                    <td class="amount">$1,000.00</td>
+                </tr>
+                <tr>
+                    <td>Product License</td>
+                    <td>5</td>
+                    <td>$250.00</td>
+                    <td class="amount">$1,250.00</td>
+                </tr>
+                <tr>
+                    <td>Support Services</td>
+                    <td>1</td>
+                    <td>$500.00</td>
+                    <td class="amount">$500.00</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- Summary -->
+        <div class="summary">
+            <div class="summary-items">
+                <div class="summary-row">
+                    <span>Subtotal</span>
+                    <span>$2,750.00</span>
+                </div>
+                <div class="summary-row">
+                    <span>Tax (10%)</span>
+                    <span>$275.00</span>
+                </div>
+                <div class="summary-row total">
+                    <span>Total Due</span>
+                    <span>$3,025.00</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <p>Thank you for your business!</p>
+            <p>Payment terms: Due upon receipt. Please make checks payable to Your Company.</p>
+        </div>
+    </div>
+</body>
+</html>

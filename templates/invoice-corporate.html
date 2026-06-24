@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invoice - Corporate</title>
+    <link rel="stylesheet" href="../../src/styles/invoice-corporate.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="page-header">
+            <div class="logo-section">
+                <div class="company-logo">YC</div>
+                <div class="company-name">Your Company</div>
+                <div class="company-tagline">Professional Business Solutions</div>
+            </div>
+            <div class="header-right">
+                <div class="invoice-title">INVOICE</div>
+                <div class="invoice-number">
+                    <p>Invoice #: INV-001</p>
+                    <p>Date: January 15, 2024</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Content -->
+        <div class="content">
+            <!-- Billing Information -->
+            <div class="row">
+                <div class="section">
+                    <div class="section-title">Bill To</div>
+                    <p><strong>Client Company Name</strong></p>
+                    <p>Attention: John Smith</p>
+                    <p>456 Client Avenue</p>
+                    <p>City, State 67890</p>
+                    <p>Telephone: (555) 987-6543</p>
+                    <p>Email: john@client.com</p>
+                </div>
+                <div class="section">
+                    <div class="section-title">Ship To</div>
+                    <p><strong>Client Company Name</strong></p>
+                    <p>Attention: John Smith</p>
+                    <p>456 Client Avenue</p>
+                    <p>City, State 67890</p>
+                </div>
+            </div>
+
+            <!-- Invoice Details -->
+            <div class="row">
+                <div class="section">
+                    <div class="section-title">Invoice Details</div>
+                    <p><strong>Invoice Date:</strong> January 15, 2024</p>
+                    <p><strong>Due Date:</strong> February 15, 2024</p>
+                    <p><strong>PO Number:</strong> PO-2024-1001</p>
+                </div>
+                <div class="section">
+                    <div class="section-title">Contact Information</div>
+                    <p><strong>Company:</strong> Your Company</p>
+                    <p><strong>Phone:</strong> (555) 123-4567</p>
+                    <p><strong>Email:</strong> contact@company.com</p>
+                    <p><strong>Website:</strong> www.company.com</p>
+                </div>
+            </div>
+
+            <!-- Items Table -->
+            <table>
+                <thead>
+                    <tr>
+                        <th style="width: 45%">Description</th>
+                        <th style="width: 15%">Quantity</th>
+                        <th style="width: 15%">Unit Price</th>
+                        <th style="width: 25%; text-align: right">Amount</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Professional Consulting Services - 10 hours</td>
+                        <td>10</td>
+                        <td>$100.00</td>
+                        <td class="amount">$1,000.00</td>
+                    </tr>
+                    <tr>
+                        <td>Annual Product License (Renewable)</td>
+                        <td>5</td>
+                        <td>$250.00</td>
+                        <td class="amount">$1,250.00</td>
+                    </tr>
+                    <tr>
+                        <td>Premium Support Services - Monthly</td>
+                        <td>1</td>
+                        <td>$500.00</td>
+                        <td class="amount">$500.00</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- Totals -->
+            <div class="totals-section">
+                <table class="totals-table">
+                    <tr>
+                        <td>Subtotal:</td>
+                        <td>$2,750.00</td>
+                    </tr>
+                    <tr>
+                        <td>Tax (10%):</td>
+                        <td>$275.00</td>
+                    </tr>
+                    <tr class="total-row">
+                        <td>TOTAL DUE:</td>
+                        <td>$3,025.00</td>
+                    </tr>
+                </table>
+            </div>
+
+            <!-- Notes -->
+            <div class="notes-section">
+                <div class="notes-title">Payment Terms & Notes</div>
+                <div class="notes-content">
+                    <p>Payment is due upon receipt of this invoice. Please remit payment within 30 days of the invoice date. Make all checks payable to Your Company. Late payments may be subject to a 1.5% monthly interest charge.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <div class="footer-item">
+                <div class="footer-label">Bank Details</div>
+                <div>Available upon request</div>
+            </div>
+            <div class="footer-item">
+                <div class="footer-label">Phone</div>
+                <div>(555) 123-4567</div>
+            </div>
+            <div class="footer-item">
+                <div class="footer-label">Email</div>
+                <div>contact@company.com</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
