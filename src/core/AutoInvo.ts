@@ -2,6 +2,7 @@ import { IPdfEngine } from '../pdf/contracts/IPdfEngine.js';
 import { PdfOptions } from '../pdf/models/PdfOptions.js';
 import { PuppeteerPdfEngine } from '../pdf/engines/PuppeteerPdfEngine.js';
 import { PdfService } from '../pdf/PdfService.js';
+import { renderTemplate } from '../templates/TemplateRenderer.js';
 
 /**
  * Main orchestration facade for the AutoInvo library.
@@ -29,5 +30,17 @@ export class AutoInvo {
      */
     public async generatePdf(html: string, options?: PdfOptions): Promise<Buffer> {
         return this.pdfService.generate(html, options);
+    }
+
+    /**
+     * Generates a PDF from a Handlebars HTML template and data.
+     * 
+     * @param templateHtml - The Handlebars template string.
+     * @param data - The data context used to render the template.
+     * @param options - Configuration options for the PDF.
+     */
+    public async generatePdfFromTemplate(templateHtml: string, data: Record<string, unknown>, options?: PdfOptions): Promise<Buffer> {
+        const renderedHtml = renderTemplate(templateHtml, data);
+        return this.pdfService.generate(renderedHtml, options);
     }
 }

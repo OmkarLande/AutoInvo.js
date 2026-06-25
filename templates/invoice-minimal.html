@@ -4,17 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Invoice - Minimal Design</title>
-    <link rel="stylesheet" href="/src/styles/invoice-minimal.css">
+    <link rel="stylesheet" href="../src/styles/invoice-minimal.css">
 </head>
 <body>
     <div class="invoice-container">
         <!-- Header -->
         <div class="header">
-            <div class="company-name">ACME Corporation</div>
+            <div class="company-name">{{company.name}}</div>
             <div class="company-details">
-                <div>123 Business Street</div>
-                <div>New York, NY 10001</div>
-                <div>contact@acme.com | (555) 123-4567</div>
+                <div>{{company.address}}</div>
+                <div>{{company.cityStatePostal}}</div>
+                <div>{{company.email}} | {{company.phone}}</div>
             </div>
             <div class="invoice-title">INVOICE</div>
         </div>
@@ -23,19 +23,19 @@
         <div class="invoice-meta">
             <div class="meta-section">
                 <div class="meta-label">Invoice Number</div>
-                <div class="meta-value">INV-2024-001234</div>
+                <div class="meta-value">{{invoice.number}}</div>
             </div>
             <div class="meta-section">
                 <div class="meta-label">Invoice Date</div>
-                <div class="meta-value">June 24, 2024</div>
+                <div class="meta-value">{{invoice.date}}</div>
             </div>
             <div class="meta-section">
                 <div class="meta-label">Due Date</div>
-                <div class="meta-value">July 24, 2024</div>
+                <div class="meta-value">{{invoice.dueDate}}</div>
             </div>
             <div class="meta-section">
                 <div class="meta-label">PO Number</div>
-                <div class="meta-value">PO-2024-5678</div>
+                <div class="meta-value">{{invoice.poNumber}}</div>
             </div>
         </div>
 
@@ -44,20 +44,20 @@
             <div class="address-block">
                 <div class="address-title">Bill To:</div>
                 <div class="address-content">
-                    <strong>John Smith</strong><br>
-                    ABC Company<br>
-                    456 Client Avenue<br>
-                    Los Angeles, CA 90001<br>
-                    john.smith@abcco.com
+                    <strong>{{billTo.name}}</strong><br>
+                    {{billTo.company}}<br>
+                    {{billTo.address}}<br>
+                    {{billTo.cityStatePostal}}<br>
+                    {{billTo.email}}
                 </div>
             </div>
             <div class="address-block">
                 <div class="address-title">Ship To:</div>
                 <div class="address-content">
-                    <strong>John Smith</strong><br>
-                    ABC Company<br>
-                    456 Client Avenue<br>
-                    Los Angeles, CA 90001
+                    <strong>{{shipTo.name}}</strong><br>
+                    {{shipTo.company}}<br>
+                    {{shipTo.address}}<br>
+                    {{shipTo.cityStatePostal}}
                 </div>
             </div>
         </div>

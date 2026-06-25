@@ -10,14 +10,14 @@
     <div class="invoice-container">
         <!-- Header -->
         <div class="header">
-            <div class="company-name">ENTERPRISE SOLUTIONS GROUP</div>
+            <div class="company-name">{{company.name}}</div>
             <div class="company-details">
-                <span>Corporate Headquarters: 1200 Corporate Boulevard, New York, NY 10017</span>
-                <span>Phone: (212) 555-0100 | Fax: (212) 555-0101 | Email: billing@enterprisesolutions.com</span>
+                <span>{{company.headquarters}}</span>
+                <span>Phone: {{company.phone}} | Fax: {{company.fax}} | Email: {{company.email}}</span>
             </div>
             <div class="invoice-title">
                 <div class="invoice-label">INVOICE</div>
-                <div class="invoice-number">ESG-2024-012345</div>
+                <div class="invoice-number">{{invoice.number}}</div>
             </div>
         </div>
 
@@ -27,19 +27,19 @@
         <div class="invoice-meta">
             <div class="meta-section">
                 <label class="meta-label">Invoice Date</label>
-                <div class="meta-value">June 24, 2024</div>
+                <div class="meta-value">{{invoice.date}}</div>
             </div>
             <div class="meta-section">
                 <label class="meta-label">Due Date</label>
-                <div class="meta-value">July 24, 2024</div>
+                <div class="meta-value">{{invoice.dueDate}}</div>
             </div>
             <div class="meta-section">
                 <label class="meta-label">Client Reference</label>
-                <div class="meta-value">CORP-ACME-2024</div>
+                <div class="meta-value">{{invoice.clientReference}}</div>
             </div>
             <div class="meta-section">
                 <label class="meta-label">Purchase Order</label>
-                <div class="meta-value">PO-2024-100523</div>
+                <div class="meta-value">{{invoice.purchaseOrder}}</div>
             </div>
         </div>
 
@@ -48,24 +48,24 @@
             <div class="address-block">
                 <div class="address-title">Bill To:</div>
                 <div class="address-content">
-                    <strong>Robert Williams</strong><br>
-                    Vice President, Operations<br>
-                    <strong>Acme Manufacturing Corp.</strong><br>
-                    5500 Industrial Way<br>
-                    Chicago, IL 60601<br>
-                    United States of America<br><br>
-                    Email: r.williams@acmemfg.com<br>
-                    Tax ID: 45-1234567
+                    <strong>{{billTo.name}}</strong><br>
+                    {{billTo.jobTitle}}<br>
+                    <strong>{{billTo.company}}</strong><br>
+                    {{billTo.address}}<br>
+                    {{billTo.cityStatePostal}}<br>
+                    {{billTo.country}}<br><br>
+                    Email: {{billTo.email}}<br>
+                    Tax ID: {{billTo.taxId}}
                 </div>
             </div>
             <div class="address-block">
                 <div class="address-title">Ship To:</div>
                 <div class="address-content">
-                    <strong>Acme Manufacturing Corp.</strong><br>
-                    Receiving Department<br>
-                    5500 Industrial Way<br>
-                    Chicago, IL 60601<br>
-                    United States of America
+                    <strong>{{shipTo.company}}</strong><br>
+                    {{shipTo.department}}<br>
+                    {{shipTo.address}}<br>
+                    {{shipTo.cityStatePostal}}<br>
+                    {{shipTo.country}}
                 </div>
             </div>
         </div>

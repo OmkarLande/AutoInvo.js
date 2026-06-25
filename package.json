@@ -33,6 +33,7 @@
     "vitest": "^4.1.9"
   },
   "dependencies": {
+    "handlebars": "^4.7.9",
     "puppeteer": "^25.1.0"
   }
 }

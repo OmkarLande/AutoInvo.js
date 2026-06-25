@@ -11,15 +11,15 @@
         <!-- Header -->
         <div class="header">
             <div>
-                <div class="company-name">TechVision Labs</div>
+                <div class="company-name">{{company.name}}</div>
                 <div class="company-details">
-                    <div>789 Innovation Drive, San Francisco, CA 94105</div>
-                    <div>hello@techvisionlabs.com | (415) 555-8901 | www.techvisionlabs.com</div>
+                    <div>{{company.address}}</div>
+                    <div>{{company.email}} | {{company.phone}} | {{company.website}}</div>
                 </div>
             </div>
             <div class="invoice-title">
-                <div class="invoice-number">INV-2024-001234</div>
-                <div class="invoice-status">PAID</div>
+                <div class="invoice-number">{{invoice.number}}</div>
+                <div class="invoice-status">{{invoice.status}}</div>
             </div>
         </div>
 
@@ -27,19 +27,19 @@
         <div class="invoice-meta">
             <div class="meta-section">
                 <div class="meta-label">Invoice Date</div>
-                <div class="meta-value">June 24, 2024</div>
+                <div class="meta-value">{{invoice.date}}</div>
             </div>
             <div class="meta-section">
                 <div class="meta-label">Due Date</div>
-                <div class="meta-value">July 24, 2024</div>
+                <div class="meta-value">{{invoice.dueDate}}</div>
             </div>
             <div class="meta-section">
                 <div class="meta-label">Payment Method</div>
-                <div class="meta-value">Bank Transfer</div>
+                <div class="meta-value">{{invoice.paymentMethod}}</div>
             </div>
             <div class="meta-section">
                 <div class="meta-label">PO Reference</div>
-                <div class="meta-value">PO-2024-8901</div>
+                <div class="meta-value">{{invoice.poReference}}</div>
             </div>
         </div>
 
@@ -48,20 +48,20 @@
             <div class="address-block">
                 <div class="address-title">Bill To</div>
                 <div class="address-content">
-                    <strong>Sarah Johnson</strong><br>
-                    Digital Solutions Inc.<br>
-                    2000 Market Street, Suite 500<br>
-                    San Francisco, CA 94102<br>
-                    sarah.johnson@digitalsolutions.com
+                    <strong>{{billTo.name}}</strong><br>
+                    {{billTo.company}}<br>
+                    {{billTo.address}}<br>
+                    {{billTo.cityStatePostal}}<br>
+                    {{billTo.email}}
                 </div>
             </div>
             <div class="address-block">
                 <div class="address-title">Ship To</div>
                 <div class="address-content">
-                    <strong>Sarah Johnson</strong><br>
-                    Digital Solutions Inc.<br>
-                    2000 Market Street, Suite 500<br>
-                    San Francisco, CA 94102
+                    <strong>{{shipTo.name}}</strong><br>
+                    {{shipTo.company}}<br>
+                    {{shipTo.address}}<br>
+                    {{shipTo.cityStatePostal}}
                 </div>
             </div>
         </div>
