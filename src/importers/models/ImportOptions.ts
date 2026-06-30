@@ -1,3 +1,5 @@
+import { HeaderMapping } from '../HeaderMappingEngine.js';
+
 export interface ImportOptions {
     // CSV Options
     delimiter?: string;
@@ -5,6 +7,7 @@ export interface ImportOptions {
     newline?: string;
     quoteChar?: string;
     escapeChar?: string;
+    customHeaderMap?: HeaderMapping;
 
     // XLSX Options
     sheetIndex?: number;

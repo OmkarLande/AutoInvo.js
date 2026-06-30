@@ -4,6 +4,7 @@ import { ImportResult } from '../models/ImportResult.js';
 import { ImportOptions } from '../models/ImportOptions.js';
 import { ImportError } from '../exceptions/ImportError.js';
 import { ImportRow } from '../models/ImportRow.js';
+import { normalizeHeaders } from '../HeaderMappingEngine.js';
 
 export class CsvImporter implements IDataImporter {
     public async parse(source: Buffer | string, options?: ImportOptions): Promise<ImportResult> {
@@ -45,19 +46,22 @@ export class CsvImporter implements IDataImporter {
                             throw new ImportError('No headers found in CSV');
                         }
 
-                        const headers: string[] = [];
-                        const headerSet = new Set<string>();
-
-                        for (const h of rawHeaders) {
-                            const trimmedHeader = h.trim();
-                            if (!trimmedHeader) {
-                                throw new ImportError('Blank header found in CSV');
+                        let headers: string[];
+                        try {
+                            headers = normalizeHeaders(rawHeaders, {
+                                customHeaderMap: options?.customHeaderMap
+                            });
+                        } catch (error) {
+                            if (error instanceof Error) {
+                                if (/blank header found/i.test(error.message)) {
+                                    throw new ImportError('Blank header found in CSV');
+                                }
+                                const duplicateMatch = error.message.match(/Duplicate header found after normalization: (.+)$/i);
+                                if (duplicateMatch) {
+                                    throw new ImportError(`Duplicate header found in CSV: ${duplicateMatch[1]}`);
+                                }
                             }
-                            if (headerSet.has(trimmedHeader)) {
-                                throw new ImportError(`Duplicate header found in CSV: ${trimmedHeader}`);
-                            }
-                            headerSet.add(trimmedHeader);
-                            headers.push(trimmedHeader);
+                            throw new ImportError(`CSV Header Normalization Error: ${error instanceof Error ? error.message : 'Unknown error'}`, error instanceof Error ? error : undefined);
                         }
 
                         const rows: ImportRow[] = [];

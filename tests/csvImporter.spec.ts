@@ -51,7 +51,7 @@ describe('CsvImporter', () => {
         const result = await importer.parse(csv);
 
         expect(result.rowCount).toBe(2);
-        expect(result.rows[0].Description).toBe('Tall, dark, and handsome');
+        expect(result.rows[0].description).toBe('Tall, dark, and handsome');
     });
 
     it('handles escaped quotes', async () => {
@@ -68,7 +68,7 @@ describe('CsvImporter', () => {
         
         const result = await importer.parse(csv);
         expect(result.rowCount).toBe(1);
-        expect(result.rows[0].Description).toBe(hugeText);
+        expect(result.rows[0].description).toBe(hugeText);
     });
 
     it('throws ImportError on empty file', async () => {
@@ -84,5 +84,28 @@ describe('CsvImporter', () => {
     it('throws ImportError on duplicate headers', async () => {
         const csv = `Name,Name,Age\nJohn,Doe,30`;
         await expect(importer.parse(csv)).rejects.toThrow('Duplicate header found in CSV: Name');
+    });
+
+    it('normalizes common header aliases', async () => {
+        const csv = `Item,Qty,Unit Cost,Line Total\nWidget,2,15.00,30.00`;
+        const result = await importer.parse(csv);
+
+        expect(result.headers).toEqual(['description', 'quantity', 'unitPrice', 'amount']);
+        expect(result.rows[0]).toEqual({ description: 'Widget', quantity: '2', unitPrice: '15.00', amount: '30.00' });
+    });
+
+    it('applies custom header mappings when provided', async () => {
+        const csv = `Product Name,Count,Price,Amount Due\nWidget,2,15.00,30.00`;
+        const result = await importer.parse(csv, {
+            customHeaderMap: {
+                'product name': 'description',
+                'count': 'quantity',
+                'price': 'unitPrice',
+                'amount due': 'amount'
+            }
+        });
+
+        expect(result.headers).toEqual(['description', 'quantity', 'unitPrice', 'amount']);
+        expect(result.rows[0]).toEqual({ description: 'Widget', quantity: '2', unitPrice: '15.00', amount: '30.00' });
     });
 });

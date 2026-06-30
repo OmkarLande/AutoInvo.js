@@ -4,6 +4,7 @@ import { ImportResult } from '../models/ImportResult.js';
 import { ImportOptions } from '../models/ImportOptions.js';
 import { ImportError } from '../exceptions/ImportError.js';
 import { ImportRow } from '../models/ImportRow.js';
+import { normalizeHeaders } from '../HeaderMappingEngine.js';
 
 export class XlsxImporter implements IDataImporter {
     public async parse(source: Buffer | string, options?: ImportOptions): Promise<ImportResult> {
@@ -48,23 +49,22 @@ export class XlsxImporter implements IDataImporter {
                 throw new ImportError('No headers found in XLSX');
             }
 
-            const headers: string[] = [];
-            const headerSet = new Set<string>();
-
-            for (let i = 0; i < rawHeaders.length; i++) {
-                const h = rawHeaders[i];
-                if (h === undefined || h === null) {
-                    throw new ImportError('Blank header found in XLSX');
+            let headers: string[];
+            try {
+                headers = normalizeHeaders(rawHeaders.map((h) => (h === undefined || h === null ? '' : String(h))), {
+                    customHeaderMap: options?.customHeaderMap
+                });
+            } catch (error) {
+                if (error instanceof Error) {
+                    if (/blank header found/i.test(error.message)) {
+                        throw new ImportError('Blank header found in XLSX');
+                    }
+                    const duplicateMatch = error.message.match(/Duplicate header found after normalization: (.+)$/i);
+                    if (duplicateMatch) {
+                        throw new ImportError(`Duplicate header found in XLSX: ${duplicateMatch[1]}`);
+                    }
                 }
-                const trimmedHeader = String(h).trim();
-                if (!trimmedHeader) {
-                    throw new ImportError('Blank header found in XLSX');
-                }
-                if (headerSet.has(trimmedHeader)) {
-                    throw new ImportError(`Duplicate header found in XLSX: ${trimmedHeader}`);
-                }
-                headerSet.add(trimmedHeader);
-                headers.push(trimmedHeader);
+                throw new ImportError(`XLSX Header Normalization Error: ${error instanceof Error ? error.message : 'Unknown error'}`, error instanceof Error ? error : undefined);
             }
 
             const rows: ImportRow[] = [];
